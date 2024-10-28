@@ -1,13 +1,13 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         hashmap = {')':'(','}':'{',']':'['}
-        ch_list = []
+        stack = []
         for ch in s:
             if ch in hashmap:
-                if ch_list and ch_list[-1] == hashmap.get(ch):
-                    ch_list.pop()
+                if stack and stack[-1] == hashmap.get(ch):
+                    stack.pop()
                 else:
                     return False
-            else:
-                ch_list.append(ch)
-        return True if not ch_list else False
+            else:        
+                stack.append(ch)
+        return True if not stack else False
