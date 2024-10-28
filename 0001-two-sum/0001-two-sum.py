@@ -3,7 +3,7 @@ class Solution:
         previous = {}
         
         for index, item in enumerate(nums):
-            delta = target - item
-            if delta in previous:
-                return [previous[delta], index]
+            value = target - item
+            if value in previous:
+                return [previous[value], index]
             previous[item] = index
