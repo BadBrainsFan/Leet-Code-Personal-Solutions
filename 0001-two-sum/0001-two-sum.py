@@ -4,5 +4,5 @@ class Solution:
         for index, item in enumerate(nums):
             value = target - item
             if value in previous:
-                return [previous[value], index]
+                return[previous[value], index]
             previous[item] = index
