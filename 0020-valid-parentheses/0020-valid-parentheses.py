@@ -2,7 +2,6 @@ class Solution:
     def isValid(self, s: str) -> bool:
         hashmap = {')':'(','}':'{',']':'['}
         stack = []
-        
         for ch in s:
             if ch in hashmap:
                 if stack and stack[-1] == hashmap.get(ch):
