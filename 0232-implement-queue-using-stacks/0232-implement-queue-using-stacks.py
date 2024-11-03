@@ -3,6 +3,7 @@ class MyQueue:
     def __init__(self):
         self.stack_1 = []
         self.stack_2 = []
+
     def push(self, x: int) -> None:
         self.stack_1.append(x)
 
@@ -16,9 +17,9 @@ class MyQueue:
             while self.stack_1:
                 self.stack_2.append(self.stack_1.pop())
         return self.stack_2[-1]
-        
+
     def empty(self) -> bool:
-        return max(len(self.stack_1),len(self.stack_2)) == 0
+        return max(len(self.stack_1), len(self.stack_2)) == 0
 
 
 # Your MyQueue object will be instantiated and called as such:
