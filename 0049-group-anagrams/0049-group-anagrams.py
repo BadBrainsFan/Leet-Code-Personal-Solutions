@@ -7,4 +7,3 @@ class Solution:
                 count[ord(ch) - ord("a")] += 1
             result[tuple(count)].append(string)
         return list(result.values())
-            
