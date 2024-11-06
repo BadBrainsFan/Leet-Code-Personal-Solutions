@@ -1,16 +1,13 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        count = {}
-        freq = [[] for i in range(len(nums) + 1)]
+        bucket = [[] for _ in nums]
 
-        for num in nums:
-            count[num] = 1 + count.get(num, 0)
-        for num, cnt in count.items():
-            freq[cnt].append(num)
-        
-        res = []
-        for i in range(len(freq) - 1, 0, -1):
-            for num in freq[i]:
-                res.append(num)
-                if len(res) == k:
-                    return res
+        # O(N)
+        c = collections.Counter(nums)
+
+        # O(d) where d is the number of distinct numbers. d <= N
+        for num, freq in c.items():
+            bucket[-freq].append(num)
+            
+        # O(?)
+        return list(itertools.chain(*bucket))[:k]
