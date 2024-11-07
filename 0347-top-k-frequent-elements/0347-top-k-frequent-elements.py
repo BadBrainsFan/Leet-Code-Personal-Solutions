@@ -1,7 +1,7 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         bucket = [[] for i in nums]
-        frequency = Counter(nums)
-        for num, freq in frequency.items():
+        count = Counter(nums)
+        for num, freq in count.items():
             bucket[-freq].append(num)
         return list(itertools.chain(*bucket))[:k]
