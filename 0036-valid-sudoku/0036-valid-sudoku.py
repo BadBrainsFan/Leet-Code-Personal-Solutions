@@ -11,7 +11,7 @@ class Solution:
                    board[row][column] in columns[column] or
                    board[row][column] in squares[(row//3, column//3)]):
                     return False
-                columns[column].add(board[row][column])
                 rows[row].add(board[row][column])
+                columns[column].add(board[row][column])
                 squares[(row//3, column//3)].add(board[row][column])
         return True
