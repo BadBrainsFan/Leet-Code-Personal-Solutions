@@ -7,6 +7,5 @@ class Solution:
                 length = 0
                 while (n + length) in numsSet:
                     length += 1
-                longest = max(length, longest)
+                longest = max(longest, length)
         return longest
-                
