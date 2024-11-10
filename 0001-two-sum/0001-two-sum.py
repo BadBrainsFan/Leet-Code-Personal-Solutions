@@ -5,5 +5,4 @@ class Solution:
             value = target - item
             if value in hashmap:
                 return [hashmap[value], index]
-            else:
-                hashmap[item] = index
+            hashmap[item] = index
