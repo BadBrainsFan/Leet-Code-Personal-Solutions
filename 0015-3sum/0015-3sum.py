@@ -5,7 +5,7 @@ class Solution:
         nums.sort()
 
         for index, item in enumerate(nums):
-            if item > 0:
+            if item > target:
                 break
 
             if index > 0 and item == nums[index - 1]:
@@ -14,9 +14,9 @@ class Solution:
             left, right = index + 1, len(nums) - 1
             while left < right:
                 threeSum = item + nums[left] + nums[right]
-                if threeSum > 0:
+                if threeSum > target:
                     right -= 1
-                elif threeSum < 0:
+                elif threeSum < target:
                     left += 1
                 else:
                     result.append([item, nums[left], nums[right]])
