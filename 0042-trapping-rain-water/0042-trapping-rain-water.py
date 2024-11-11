@@ -2,7 +2,7 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         water = 0
         if not height: return 0
-        left, right = 0, len(height) - 1
+        left, right = 0, len(height)-1
         leftMax, rightMax = height[left], height[right]
         while left < right:
             if leftMax < rightMax:
@@ -14,3 +14,4 @@ class Solution:
                 rightMax = max(rightMax, height[right])
                 water += rightMax - height[right]
         return water
+                
