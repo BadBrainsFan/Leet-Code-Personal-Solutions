@@ -7,5 +7,5 @@ class Solution:
                 length = 0
                 while (n + length) in setNums:
                     length += 1
-                longest = max(longest,length)
+                longest = max(longest, length)
         return longest
