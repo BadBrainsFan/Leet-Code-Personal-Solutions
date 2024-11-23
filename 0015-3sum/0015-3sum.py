@@ -6,9 +6,9 @@ class Solution:
         for index, item in enumerate(nums):
             if item > target:
                 break
-            if index > 0 and item == nums[index -1]:
+            if index > 0 and item == nums[index - 1]:
                 continue
-            left,right = index + 1, len(nums)-1
+            left, right = index + 1,len(nums)-1
             while left < right:
                 trio = item + nums[left] + nums[right]
                 if trio > target:
