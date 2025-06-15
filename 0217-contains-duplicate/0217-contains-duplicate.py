@@ -5,9 +5,9 @@ class Solution:
 
         duplicates = {}
 
-        for index in range(len(nums)):
-            if nums[index] not in duplicates.values():
-                duplicates[nums[index]] = 1
+        for num in nums:
+            if num not in duplicates:
+                duplicates[num] = 1
             else:
-                duplicates[nums[index]] += 1
-        return len(duplicates.values()) != len(nums)
+                return True
+        return False
