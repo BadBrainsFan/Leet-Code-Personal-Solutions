@@ -6,4 +6,4 @@ class Solution:
             if target - item not in hashmap:
                 hashmap[item] = index
             else:
-                return [hashmap[target-item], index]
+                return [hashmap[target - item], index]
