@@ -1,12 +1,20 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        result = [1] * len(nums)
-        prefix = 1
-        for n in range(len(nums)):
-            result[n] = prefix
-            prefix *= nums[n]
-        postfix = 1
-        for n in range(len(nums)-1,-1,-1):
-            result[n] *= postfix
-            postfix *= nums[n]
-        return result
+        n = len(nums)
+        answer = [1] * n  # Initialize answer array with 1s
+
+        # First pass: Calculate prefix products
+        # answer[i] will store the product of all elements to the left of nums[i]
+        prefix_product = 1
+        for i in range(n):
+            answer[i] = prefix_product
+            prefix_product *= nums[i]
+
+        # Second pass: Calculate suffix products and combine with prefix products
+        # suffix_product will accumulate the product of elements to the right
+        suffix_product = 1
+        for i in range(n - 1, -1, -1):
+            answer[i] *= suffix_product
+            suffix_product *= nums[i]
+            
+        return answer
