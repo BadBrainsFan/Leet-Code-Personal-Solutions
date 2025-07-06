@@ -1,26 +1,16 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        if len(nums) == k:
-            return nums
+        count = {}
+        freq = [[] for i in range(len(nums) + 1)]
 
-        else:
-            count = {}
-            for number in nums:
-                if number not in count:
-                    count[number] = 1
-                else:
-                    count[number] += 1
-            
-            middle_list = []
-
-            for key, value in count.items():
-                if value >= k:
-                    middle_list.append(key)
-
-            middle_list.sort()
-            answer = []
-
-            while len(answer) < k:
-                answer.append(middle_list.pop())
-            
-            return answer
+        for num in nums:
+            count[num] = 1 + count.get(num, 0)
+        for num, cnt in count.items():
+            freq[cnt].append(num)
+        
+        res = []
+        for i in range(len(freq) - 1, 0, -1):
+            for num in freq[i]:
+                res.append(num)
+                if len(res) == k:
+                    return res
