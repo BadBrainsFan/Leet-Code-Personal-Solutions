@@ -1,10 +1,9 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        count = {}
-
-        for number in nums:
-            if number not in count:
-                count[number] = 1
+        hashmap = {}
+        for num in nums:
+            if num not in hashmap:
+                hashmap[num] = 1
             else:
                 return True
         return False
